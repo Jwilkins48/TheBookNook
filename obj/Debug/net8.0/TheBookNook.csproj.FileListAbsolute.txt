@@ -109,3 +109,4 @@ C:\Users\16829\OneDrive\Desktop\Capstone\TheBookNook\obj\Debug\net8.0\refint\The
 C:\Users\16829\OneDrive\Desktop\Capstone\TheBookNook\obj\Debug\net8.0\TheBookNook.pdb
 C:\Users\16829\OneDrive\Desktop\Capstone\TheBookNook\obj\Debug\net8.0\TheBookNook.genruntimeconfig.cache
 C:\Users\16829\OneDrive\Desktop\Capstone\TheBookNook\obj\Debug\net8.0\ref\TheBookNook.dll
+C:\Users\16829\OneDrive\Desktop\Capstone\TheBookNook\obj\Debug\net8.0\TheBookNook.sourcelink.json
