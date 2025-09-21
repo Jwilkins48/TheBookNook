@@ -1,0 +1,55 @@
+@model LoginFormViewModel
+@{
+    ViewData["Title"] = "Login";
+    var error = Model.Error;
+}
+
+<h1 class="mb-3">Login</h1>
+
+@* Show any messages *@
+@if (error is not null)
+{
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        @if (error == "invalid-credentials")
+        {
+            <strong>Invalid credentials. Please try again</strong>
+        }
+        else if (error == "logout-successful")
+        {
+            <strong>You have been successfully signed out.</strong>
+        }
+        else
+        {
+            <strong>Something went wrong</strong>
+        }
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="card shadow">
+    <div class="card-body">
+
+        <form asp-controller="Account" asp-action="ProcessLoginForm" method="post">
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Email:</label>
+                <input asp-for="Email" class="form-control" />
+                <span class="form-text text-danger" asp-validation-for="Email"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label">Password:</label>
+                <input asp-for="Password" class="form-control" />
+                <span class="form-text text-danger" asp-validation-for="Password"></span>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-success">Login</button>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer text-center">
+        <p class="mb-0 text-muted">Not registered? <a class="text-success-emphasis" href="/account/register">Sign up</a>
+        </p>
+    </div>
+
+</div>
