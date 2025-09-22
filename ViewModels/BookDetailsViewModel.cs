@@ -12,5 +12,6 @@ public class BookDetailsViewModel
     public string ReaderUsername { get; set; } = "";
 
     // Comments
-    // public CommentFormViewModel? CommentFormViewModel { get; set; }
+    public CommentFormViewModel? CommentFormViewModel { get; set; }
+    public List<string> Comment { get; set; } = [];
 }

@@ -114,11 +114,58 @@ public class BookController(ApplicationContext context) : Controller
                 PublishedYear = book.PublishedYear,
                 Description = book.Description,
                 ReaderUsername = book.User!.Username,
-                // CommentFormViewModel = new() { BookId = book.Id },
+                Comment = book.Comments.Select((c) => c.CommentContext).ToList(),
+                CommentFormViewModel = new() { BookId = book.Id },
             })
             .FirstOrDefaultAsync();
 
         return View(vm);
+    }
+
+    [HttpPost("{id}/comment")] // Book Comment Post
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> BookComment(int id, CommentFormViewModel vm)
+    {
+        // Check if user is logged in
+        var userId = HttpContext.Session.GetInt32(SessionUserId);
+        if (userId is not int uid)
+            return RedirectToAction("LoginForm", "Account", new { error = "not-authenticated" });
+
+        // If invalid - return book details
+        if (!ModelState.IsValid)
+        {
+            var book = await _context.Books.Where((book) => book.Id == id).FirstOrDefaultAsync();
+            if (book is null)
+                return NotFound();
+
+            var viewModel = _context
+                .Books.Where(book => book.Id == id)
+                .Select(book => new BookDetailsViewModel
+                {
+                    Id = book.Id,
+                    UserId = book.UserId,
+                    BookTitle = book.BookTitle,
+                    Author = book.Author,
+                    Genre = book.Genre,
+                    ReaderUsername = book.User!.Username,
+                    Description = book.Description,
+                    PublishedYear = book.PublishedYear,
+                    CommentFormViewModel = vm,
+                });
+
+            return View("BookDetails", viewModel);
+        }
+
+        var newComment = new Comment
+        {
+            CommentContext = vm.CommentContext,
+            UserId = uid,
+            BookId = id,
+        };
+        await _context.Comments.AddAsync(newComment);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(BookDetails), new { id });
     }
 
     [HttpGet("{id}/edit")] // Edit Book View

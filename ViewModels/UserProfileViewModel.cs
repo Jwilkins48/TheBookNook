@@ -6,4 +6,5 @@ public class UserProfileViewModel
     public string Email { get; set; } = "";
     public int BooksAddedCount { get; set; }
     public int BooksCommentedOnCount { get; set; }
+    public List<string> BookNames { get; set; } = [];
 }
