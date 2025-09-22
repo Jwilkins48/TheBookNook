@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TheBooksNook.Models;
@@ -12,9 +13,33 @@ public class BookController(ApplicationContext context) : Controller
     private const string SessionUserId = "userId";
 
     [HttpGet("")] // All Books View
-    public IActionResult AllBooks()
+    public async Task<IActionResult> AllBooks()
     {
-        return View();
+        // Check if user is logged in
+        var userId = HttpContext.Session.GetInt32(SessionUserId);
+        if (userId is not int uid)
+            return RedirectToAction("LoginForm", "Account", new { error = "not-authenticated" });
+
+        // Format Book
+        var BookCards = await _context
+            .Books.AsNoTracking()
+            .Select(book => new BookCardViewModel
+            {
+                Id = book.Id,
+                BookTitle = book.BookTitle,
+                Author = book.Author,
+                Genre = book.Genre,
+                PublishedYear = book.PublishedYear,
+                ReaderUsername = book.User!.Username,
+                CreatedAt = book.CreatedAt,
+                UserId = book.User.Id,
+            })
+            .OrderByDescending(book => book.CreatedAt)
+            .ToListAsync();
+
+        // Add books into list
+        var vm = new BookIndexViewModel { AllBooks = BookCards };
+        return View(vm);
     }
 
     [HttpGet("new")]

@@ -1,7 +1,29 @@
 @using Humanizer
-@* @model BookIndexViewModel *@
+@model BookIndexViewModel
 @{
     ViewData["Title"] = "Book Gallery";
+    var books = Model;
 }
 
 <h1>All Books</h1>
+
+@foreach (var book in books.AllBooks)
+{
+    <div class="border-success shadow card mb-3 p-3">
+        @book.BookTitle -
+        @book.Author -
+        @book.Genre -
+        @book.PublishedYear
+
+        <div class="d-flex align-items-center">
+            <div><a class="text-success-emphasis btn" href="books/@book.Id">View</a></div>
+            @if (Context.Session.GetInt32("userId") == book.UserId)
+            {
+                <p class="mb-0"> <a class="btn text-warning-emphasis" href="/books/@book.Id/edit">Edit</a> </p>
+
+                <p class="mb-0"> <a class="btn text-danger-emphasis" href="/books/@book.Id/delete">Delete</a></p>
+            }
+        </div>
+    </div>
+
+}
