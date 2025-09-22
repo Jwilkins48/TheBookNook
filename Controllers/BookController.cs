@@ -42,7 +42,7 @@ public class BookController(ApplicationContext context) : Controller
         return View(vm);
     }
 
-    [HttpGet("new")]
+    [HttpGet("new")] // New Book View
     public IActionResult AddBook()
     {
         // Check if user is logged in
@@ -90,5 +90,34 @@ public class BookController(ApplicationContext context) : Controller
         await _context.SaveChangesAsync();
 
         return RedirectToAction(nameof(AllBooks));
+    }
+
+    [HttpGet("{id}")] // Book Details View
+    public async Task<IActionResult> BookDetails(int id)
+    {
+        // Check if user is logged in
+        var userId = HttpContext.Session.GetInt32(SessionUserId);
+        if (userId is not int uid)
+            return RedirectToAction("LoginForm", "Account", new { error = "not-authenticated" });
+
+        // Project data into view model
+        var vm = await _context
+            .Books.AsNoTracking()
+            .Where(book => book.Id == id)
+            .Select(book => new BookDetailsViewModel
+            {
+                Id = book.Id,
+                UserId = book.UserId,
+                BookTitle = book.BookTitle,
+                Author = book.Author,
+                Genre = book.Genre,
+                PublishedYear = book.PublishedYear,
+                Description = book.Description,
+                ReaderUsername = book.User!.Username,
+                // CommentFormViewModel = new() { BookId = book.Id },
+            })
+            .FirstOrDefaultAsync();
+
+        return View(vm);
     }
 }

@@ -1,0 +1,25 @@
+@model BookDetailsViewModel
+@{
+    ViewData["Title"] = @Model.BookTitle;
+    var book = Model;
+}
+
+<h1 class="my-3">Book Details</h1>
+<div class="border-success shadow card mb-3 p-3">
+    @book.BookTitle -
+    @book.Author -
+    @book.Genre -
+    @book.PublishedYear -
+    @book.Description -
+    @book.ReaderUsername
+
+    <div class="d-flex align-items-center">
+        <div><a class="text-success-emphasis btn" href="/books">Back To List</a></div>
+        @if (Context.Session.GetInt32("userId") == book.UserId)
+        {
+            <p class="mb-0"> <a class="btn text-warning-emphasis" href="/books/@book.Id/edit">Edit</a> </p>
+
+            <p class="mb-0"> <a class="btn text-danger-emphasis" href="/books/@book.Id/delete">Delete</a></p>
+        }
+    </div>
+</div>

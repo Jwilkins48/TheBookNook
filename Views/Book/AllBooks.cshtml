@@ -13,7 +13,8 @@
         @book.BookTitle -
         @book.Author -
         @book.Genre -
-        @book.PublishedYear
+        @book.PublishedYear -
+        @book.CreatedAt.Humanize()
 
         <div class="d-flex align-items-center">
             <div><a class="text-success-emphasis btn" href="books/@book.Id">View</a></div>
