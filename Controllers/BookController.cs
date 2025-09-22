@@ -120,4 +120,69 @@ public class BookController(ApplicationContext context) : Controller
 
         return View(vm);
     }
+
+    [HttpGet("{id}/edit")] // Edit Book View
+    public async Task<IActionResult> EditBook(int id)
+    {
+        // Check if user is logged in
+        var userId = HttpContext.Session.GetInt32(SessionUserId);
+        if (userId is not int uid)
+            return RedirectToAction("LoginForm", "Account", new { error = "not-authenticated" });
+
+        // Check if book exists
+        var book = await _context.Books.FirstOrDefaultAsync(book => book.Id == id);
+        if (book is null)
+            return NotFound();
+
+        // Only edit if users book
+        if (uid != book.UserId)
+            return new StatusCodeResult(403);
+
+        // Fill form with book info
+        var vm = new BookFormViewModel
+        {
+            Id = book.Id,
+            BookTitle = book.BookTitle,
+            Author = book.Author,
+            Genre = book.Genre,
+            PublishedYear = book.PublishedYear,
+            Description = book.Description,
+        };
+        return View(vm);
+    }
+
+    [HttpPost("{id}/update")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> EditBookPost(int id, BookFormViewModel vm)
+    {
+        // Normalize inputs
+        vm.BookTitle = (vm.BookTitle ?? "").Trim();
+        vm.Author = (vm.Author ?? "").Trim();
+        vm.Genre = (vm.Genre ?? "").Trim();
+        vm.Description = (vm.Description ?? "").Trim();
+
+        // Basic Validation
+        if (!ModelState.IsValid)
+            return View(nameof(EditBook), vm);
+
+        // Id matches request id
+        if (id != vm.Id)
+            return BadRequest();
+
+        // Check if book exists
+        var book = await _context.Books.FirstOrDefaultAsync(book => book.Id == id);
+        if (book is null)
+            return NotFound();
+
+        // Update data
+        book.BookTitle = vm.BookTitle;
+        book.Author = vm.Author;
+        book.Genre = vm.Genre;
+        book.PublishedYear = vm.PublishedYear;
+        book.Description = vm.Description;
+
+        // Save to db
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(AllBooks), new { id });
+    }
 }

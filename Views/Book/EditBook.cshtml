@@ -1,0 +1,46 @@
+@model BookFormViewModel
+@{
+    ViewData["Title"] = "Edit Book";
+    var book = Model;
+}
+
+<h1>Edit @book.BookTitle</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="EditBookPost" asp-controller="Book" asp-route-id="@Model.Id" method="post">
+    <input type="hidden" asp-for="Id" value="@Model.Id">
+    <div class="mb-3">
+        <label asp-for="BookTitle" class="form-label">Book Title:</label>
+        <input asp-for="BookTitle" class="form-control" />
+        <span class="form-text text-danger" asp-validation-for="BookTitle"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Author" class="form-label">Author:</label>
+        <input asp-for="Author" class="form-control" />
+        <span class="form-text text-danger" asp-validation-for="Author"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Genre" class="form-label">Genre:</label>
+        <input asp-for="Genre" class="form-control" />
+        <span class="form-text text-danger" asp-validation-for="Genre"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="PublishedYear" class="form-label">Published Year:</label>
+        <input asp-for="PublishedYear" class="form-control" />
+        <span class="form-text text-danger" asp-validation-for="PublishedYear"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label">Description:</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span class="form-text text-danger" asp-validation-for="Description"></span>
+    </div>
+
+    <div class="text-end">
+        <button type="submit" class="btn btn-success">Update Book</button>
+    </div>
+</form>
