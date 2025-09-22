@@ -151,7 +151,7 @@ public class BookController(ApplicationContext context) : Controller
         return View(vm);
     }
 
-    [HttpPost("{id}/update")]
+    [HttpPost("{id}/update")] // Edit book post
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> EditBookPost(int id, BookFormViewModel vm)
     {
@@ -184,5 +184,51 @@ public class BookController(ApplicationContext context) : Controller
         // Save to db
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(AllBooks), new { id });
+    }
+
+    [HttpGet("{id}/delete")] // Delete Book View
+    public async Task<IActionResult> ConfirmDelete(int id)
+    {
+        // Check if user is logged in
+        var userId = HttpContext.Session.GetInt32(SessionUserId);
+        if (userId is not int uid)
+            return RedirectToAction("LoginForm", "Account", new { error = "not-authenticated" });
+
+        // Check if book exists
+        var book = await _context.Books.FirstOrDefaultAsync(book => book.Id == id);
+        if (book is null)
+            return NotFound();
+
+        // Only delete if users book
+        if (uid != book.UserId)
+            return new StatusCodeResult(403);
+
+        var vm = new ConfirmDeleteViewModel { Id = book.Id, BookTitle = book.BookTitle };
+        return View(vm);
+    }
+
+    [HttpPost("{id}/delete")] // Delete Book Post
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteBook(int id, ConfirmDeleteViewModel vm)
+    {
+        // Check if user is logged in
+        var userId = HttpContext.Session.GetInt32(SessionUserId);
+        if (userId is not int uid)
+            return RedirectToAction("LoginForm", "Account", new { error = "not-authenticated" });
+
+        // Id matches request id
+        if (id != vm.Id)
+            return BadRequest();
+
+        // Check if book exists
+        var book = await _context.Books.FirstOrDefaultAsync(book => book.Id == id);
+        if (book is null)
+            return NotFound();
+
+        // Update db
+        _context.Books.Remove(book);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(AllBooks));
     }
 }
