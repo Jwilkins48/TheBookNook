@@ -12,7 +12,7 @@ using TheBooksNook.Models;
 namespace TheBooksNook.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20250921223816_FirstMigration")]
+    [Migration("20250923154532_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -83,8 +83,9 @@ namespace TheBooksNook.Migrations
                     b.Property<int>("BookId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CommentContext")
-                        .HasColumnType("int");
+                    b.Property<string>("CommentContext")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");

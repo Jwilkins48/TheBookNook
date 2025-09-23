@@ -7,6 +7,7 @@ var dbPassword = builder.Configuration["DbPassword"];
 var connectionString =
     $"Server=localhost;port=3306;userid=root;password={dbPassword};database=TheBookNook_db;";
 
+builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession();

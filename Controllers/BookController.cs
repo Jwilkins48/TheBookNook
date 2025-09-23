@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TheBooksNook.Models;
@@ -138,7 +137,7 @@ public class BookController(ApplicationContext context) : Controller
             if (book is null)
                 return NotFound();
 
-            var viewModel = _context
+            var viewModel = await _context
                 .Books.Where(book => book.Id == id)
                 .Select(book => new BookDetailsViewModel
                 {
@@ -147,11 +146,13 @@ public class BookController(ApplicationContext context) : Controller
                     BookTitle = book.BookTitle,
                     Author = book.Author,
                     Genre = book.Genre,
-                    ReaderUsername = book.User!.Username,
-                    Description = book.Description,
                     PublishedYear = book.PublishedYear,
+                    Description = book.Description,
+                    ReaderUsername = book.User!.Username,
+                    Comment = book.Comments.Select((c) => c.CommentContext).ToList(),
                     CommentFormViewModel = vm,
-                });
+                })
+                .FirstOrDefaultAsync();
 
             return View("BookDetails", viewModel);
         }
