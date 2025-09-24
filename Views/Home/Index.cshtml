@@ -2,7 +2,31 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div style="height:70vh; justify-content:center;" class="text-start d-flex flex-column">
+    <h1 style="font-family:Alan Sans, sans-serif;" class="display-2">The <span class="text-success-emphasis"
+            style="font-family:Cinzel Decorative,serif;">Book</span>
+        Nook</h1>
+    <p class="mt-2" style="font-size:1.5rem;">Explore <span class="text-success-emphasis">Engage</span> Enchant</p>
+
+    <div>
+
+        @if (@ViewData["Message"]!.ToString() == "No user!")
+        {
+            <a class="btn btn-outline-warning me-1" href="/account/register">Sign Up</a>
+            <a class="btn btn-outline-warning" href="/account/login">Sign In</a>
+        }
+        else
+        {
+            <div>
+                <a style="font-family:Eagle Lake, serif;" class="btn btn-outline-warning shadow me-1 p-2"
+                    href="/apiBooks">Book
+                    of
+                    The Day</a>
+                <a style="font-family:Eagle Lake, serif;" class="btn btn-outline-warning shadow p-2" href="/books">All
+                    Books</a>
+            </div>
+        }
+    </div>
+
+
 </div>

@@ -2,44 +2,51 @@
 @{
     ViewData["Title"] = "New Book";
 }
+<div style="margin-bottom:6rem;display:flex;justify-content:center;align-items:center;height:68vh;">
+    <div style="width:50rem;">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>New Book</h1>
+            <a class="btn btn-outline-warning" href="/books">Back to Books</a>
+        </div>
 
-<h1>New Book</h1>
+        <div asp-validation-summary="All" class="text-warning"></div>
 
-<div asp-validation-summary="All" class="text-danger"></div>
+        <form asp-action="AddBookPost" asp-controller="Book" method="post">
 
-<form asp-action="AddBookPost" asp-controller="Book" method="post">
+            <div class="mb-3">
+                <label asp-for="BookTitle" class="form-label text-warning">Book Title:</label>
+                <input asp-for="BookTitle" class="form-control" />
+                <span class="form-text text-white" asp-validation-for="BookTitle"></span>
+            </div>
 
-    <div class="mb-3">
-        <label asp-for="BookTitle" class="form-label">Book Title:</label>
-        <input asp-for="BookTitle" class="form-control" />
-        <span class="form-text text-danger" asp-validation-for="BookTitle"></span>
+            <div class="mb-3">
+                <label asp-for="Author" class="form-label text-warning">Author:</label>
+                <input asp-for="Author" class="form-control" />
+                <span class="form-text text-white" asp-validation-for="Author"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Genre" class="form-label text-warning">Genre:</label>
+                <input asp-for="Genre" class="form-control" />
+                <span class="form-text text-white" asp-validation-for="Genre"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="PublishedYear" class="form-label text-warning">Published Year:</label>
+                <input asp-for="PublishedYear" class="form-control" />
+                <span class="form-text text-white" asp-validation-for="PublishedYear"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label text-warning">Description:</label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span class="form-text text-white" asp-validation-for="Description"></span>
+            </div>
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-warning">Add Book</button>
+            </div>
+
+        </form>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="Author" class="form-label">Author:</label>
-        <input asp-for="Author" class="form-control" />
-        <span class="form-text text-danger" asp-validation-for="Author"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Genre" class="form-label">Genre:</label>
-        <input asp-for="Genre" class="form-control" />
-        <span class="form-text text-danger" asp-validation-for="Genre"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="PublishedYear" class="form-label">Published Year:</label>
-        <input asp-for="PublishedYear" class="form-control" />
-        <span class="form-text text-danger" asp-validation-for="PublishedYear"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Description" class="form-label">Description:</label>
-        <textarea asp-for="Description" class="form-control"></textarea>
-        <span class="form-text text-danger" asp-validation-for="Description"></span>
-    </div>
-
-    <div class="text-end">
-        <button type="submit" class="btn btn-success">Add Book</button>
-    </div>
-</form>
+</div>

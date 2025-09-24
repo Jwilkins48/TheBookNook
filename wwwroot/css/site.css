@@ -1,3 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Cinzel+Decorative:wght@400;700;900&family=Eagle+Lake&family=Macondo+Swash+Caps&family=Metamorphous&display=swap");
+
+/* font-family: "Alan Sans", sans-serif; */
+/* font-family: "Metamorphous", serif; */
+/* font-family: "Macondo Swash Caps", cursive; */
+/* font-family: "Eagle Lake", serif; */
+/* font-family: "Cinzel Decorative", serif; */
+
+a {
+  font-family: "Eagle Lake", serif;
+}
+
 html {
   font-size: 14px;
 }
@@ -23,6 +35,25 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: #214a4c;
+  font-family: "Alan Sans", sans-serif;
+}
+
+.navbar {
+  background-color: #153536 !important;
+}
+
+footer {
+  background-color: #153536;
+}
+
+.form-control {
+  background-color: #d8d8d8;
+  color: #153536;
+}
+.form-control:focus {
+  background-color: #d8d8d8;
+  color: #153536;
 }
 
 .form-floating > .form-control-plaintext::placeholder,
@@ -39,9 +70,8 @@ body {
 /* Books Filter Dropdown */
 
 .dropbtn {
-  background-color: #04aa6d;
-  color: white;
-  padding: 16px;
+  /* background-color: #04aa6d; */
+  padding: 0.25rem 1.5rem;
   font-size: 16px;
   border: none;
 }
@@ -49,6 +79,7 @@ body {
 .dropdown {
   position: relative;
   display: inline-block;
+  font-family: "Alan Sans", sans-serif;
 }
 
 .dropdown-content {
@@ -59,6 +90,13 @@ body {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
+.dropdown-content a {
+  font-family: "Alan Sans", sans-serif;
+}
+.dropdown-content a:hover {
+  border-radius: 10px;
+  background-color: #ddd;
+}
 
 .dropdown-content a {
   color: black;
@@ -67,14 +105,18 @@ body {
   display: block;
 }
 
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+/* Book Cards */
+.bookCard {
+  background-color: #153536bd;
+  border: #0b212294 1px solid;
+}
+.bookCard a {
+  text-decoration: none;
+}
+.bookCard a:hover {
+  text-decoration: underline;
 }

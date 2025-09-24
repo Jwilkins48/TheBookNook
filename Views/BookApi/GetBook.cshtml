@@ -9,7 +9,7 @@
 <h2>@Model.VolumeInfo.Publisher</h2>
 <p>@Model.VolumeInfo.PublishedDate</p>
 
-<img src=@Model.VolumeInfo.ImageLinks.SmallThumbnail alt="Book Cover">
+<img src=@Model.VolumeInfo.ImageLinks?.SmallThumbnail alt="Book Cover">
 
 <h4 class="mt-3">Description</h4>
 <p>@Model.VolumeInfo.Description</p>

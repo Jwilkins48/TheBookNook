@@ -62,7 +62,7 @@ public class AccountController(ApplicationContext context, IPasswordService pass
 
         // Start sesion
         HttpContext.Session.SetInt32(SessionUserId, newUser.Id);
-        return RedirectToAction("GetBook", "BookApi");
+        return RedirectToAction("AllBooks", "Book");
     }
 
     [HttpGet("login")] // User Login View
@@ -107,7 +107,7 @@ public class AccountController(ApplicationContext context, IPasswordService pass
 
         // Set session
         HttpContext.Session.SetInt32(SessionUserId, user.Id);
-        return RedirectToAction("GetBook", "BookApi");
+        return RedirectToAction("AllBooks", "Book");
     }
 
     [HttpGet("logout")] // User Logout View

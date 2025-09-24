@@ -4,12 +4,15 @@
     ViewData["Title"] = "Book Gallery";
     var books = Model;
 }
-<div class="d-flex justify-content-between align-items-center">
-    <h1>All Books</h1>
+<div class="d-flex justify-content-between align-items-center my-4">
+    <div class="d-flex gap-3 align-items-center">
+        <h1 style="font-family: Eagle Lake, serif;">All Books</h1>
+        <a href="/books/new"><i class="bi bi-plus-circle" style="font-size:1.8rem; color:#ffc107;"></i></a>
+    </div>
 
     <div class="dropdown p-1 rounded shadow"">
-        <button class=" dropbtn">Filter Genre</button>
-        <div class="dropdown-content">
+        <button class=" dropbtn btn btn-warning">Filter Genre</button>
+        <div class="dropdown-content rounded">
             <a href="/books">All Books</a>
             <a href="/books?genre=fantasy">Fantasy</a>
             <a href="/books?genre=sci-Fi">Sci-Fi</a>
@@ -20,24 +23,29 @@
     </div>
 </div>
 
-@foreach (var book in books.AllBooks)
-{
-    <div class="border-success shadow card mb-3 p-3">
-        @book.BookTitle -
-        @book.Author -
-        @book.Genre -
-        @book.PublishedYear -
-        @book.CreatedAt.Humanize()
+<div style="display:grid;grid-template-columns: 1fr 1fr 1fr;gap: 1rem;">
+    @foreach (var book in books.AllBooks)
+    {
+        <div style="position:relative;" class="shadow card mb-3 p-3 pb-1 bookCard">
 
-        <div class="d-flex align-items-center">
-            <div><a class="text-success-emphasis btn" href="books/@book.Id">View</a></div>
-            @if (Context.Session.GetInt32("userId") == book.UserId)
-            {
-                <p class="mb-0"> <a class="btn text-warning-emphasis" href="/books/@book.Id/edit">Edit</a> </p>
+            <h5><a class="text-warning" href="books/@book.Id">@book.BookTitle</a></h5>
+            <p>@book.Author ~ @book.PublishedYear</p>
+            <p><span class="text-warning">Genre</span> @book.Genre</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <p><span class="text-warning">Posted By</span> @book.ReaderUsername </p>
+                <p style="font-size:.7rem;">@book.CreatedAt.Humanize()</p>
+            </div>
 
-                <p class="mb-0"> <a class="btn text-danger-emphasis" href="/books/@book.Id/delete">Delete</a></p>
-            }
+
+
+            <div style="position:absolute; right:0; top:5px;" class="d-flex align-items-center">
+                @if (Context.Session.GetInt32("userId") == book.UserId)
+                {
+                    <p class="mb-0"> <a class="btn text-danger-emphasis" href="/books/@book.Id/delete"><i
+                                class="bi bi-x-lg"></i></a></p>
+                }
+            </div>
         </div>
-    </div>
 
-}
+    }
+</div>
