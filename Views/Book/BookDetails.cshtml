@@ -26,7 +26,6 @@
     @await Html.PartialAsync("_CommentForm", book.CommentFormViewModel)
 
     <ul class="list-group  list-group-flush">
-
         @foreach (var comment in book.Comment)
         {
             <li class="list-group-item text-success-emphasis ps-0" style="font-size:1.25rem;">@comment</li>

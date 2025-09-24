@@ -1,0 +1,40 @@
+@model UserProfileViewModel
+
+@{
+    ViewData["Title"] = "Profile";
+    var user = Model;
+}
+
+<h1>@user.Username's Profile</h1>
+
+<div class="card p-3 border-success d-flex justify-content-between" style="flex-direction: row; width:28rem;">
+    <div>
+
+        <div><strong>Username:</strong>
+            <p class="text-success-emphasis">@user.Username</p>
+        </div>
+
+        <div>
+            <strong>Email:</strong>
+            <p class="text-success-emphasis">@user.Email</p>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-start gap-3">
+        <div>
+            <strong>Books Added:</strong>
+            <p>@user.BooksAddedCount</p>
+        </div>
+
+        <div>
+            <strong>Book Comments:</strong>
+            <p>@user.BooksCommentedOnCount</p>
+        </div>
+    </div>
+</div>
+
+<h3 class="mt-3">Uploaded Books</h3>
+@foreach (var book in user.BookNames)
+{
+    <li class="list-group-item text-success-emphasis ps-0" style="font-size:1.25rem;">@book</li>
+}

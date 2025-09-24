@@ -62,7 +62,7 @@ public class AccountController(ApplicationContext context, IPasswordService pass
 
         // Start sesion
         HttpContext.Session.SetInt32(SessionUserId, newUser.Id);
-        return RedirectToAction("AllBooks", "Book");
+        return RedirectToAction("GetBook", "BookApi");
     }
 
     [HttpGet("login")] // User Login View
@@ -107,7 +107,7 @@ public class AccountController(ApplicationContext context, IPasswordService pass
 
         // Set session
         HttpContext.Session.SetInt32(SessionUserId, user.Id);
-        return RedirectToAction("AllBooks", "Book");
+        return RedirectToAction("GetBook", "BookApi");
     }
 
     [HttpGet("logout")] // User Logout View
@@ -152,6 +152,7 @@ public class AccountController(ApplicationContext context, IPasswordService pass
                 Email = user.Email,
                 BooksAddedCount = user.Books.Count,
                 BooksCommentedOnCount = user.Comments.Count,
+                BookNames = user.Books.Select((b) => b.BookTitle).ToList(),
             })
             .FirstOrDefault();
 

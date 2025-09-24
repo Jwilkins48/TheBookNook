@@ -28,9 +28,6 @@ public class BookApiController(IHttpClientFactory clientFactory) : Controller
             var jsonString = await response.Content.ReadAsStringAsync();
             var book = JsonSerializer.Deserialize<BookApi>(jsonString);
 
-            Console.WriteLine("*******************************************************");
-            Console.WriteLine(book);
-
             return View(book);
         }
         catch (Exception ex)

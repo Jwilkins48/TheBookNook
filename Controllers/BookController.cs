@@ -12,12 +12,17 @@ public class BookController(ApplicationContext context) : Controller
     private const string SessionUserId = "userId";
 
     [HttpGet("")] // All Books View
-    public async Task<IActionResult> AllBooks()
+    public async Task<IActionResult> AllBooks(string filterGenre)
     {
         // Check if user is logged in
         var userId = HttpContext.Session.GetInt32(SessionUserId);
         if (userId is not int uid)
             return RedirectToAction("LoginForm", "Account", new { error = "not-authenticated" });
+
+        // // ADDING
+        // ViewBag.GenreFilterParm = filterGenre == "Date" ? "date_desc" : "Date";
+
+        // //
 
         // Format Book
         var BookCards = await _context
