@@ -12,21 +12,30 @@ public class BookController(ApplicationContext context) : Controller
     private const string SessionUserId = "userId";
 
     [HttpGet("")] // All Books View
-    public async Task<IActionResult> AllBooks(string filterGenre)
+    public async Task<IActionResult> AllBooks(string? genre)
     {
         // Check if user is logged in
         var userId = HttpContext.Session.GetInt32(SessionUserId);
         if (userId is not int uid)
             return RedirectToAction("LoginForm", "Account", new { error = "not-authenticated" });
 
-        // // ADDING
-        // ViewBag.GenreFilterParm = filterGenre == "Date" ? "date_desc" : "Date";
+        // Filter by Genre
+        var filteredBook = _context.Books.Select(b => b);
+        if (!string.IsNullOrEmpty(genre))
+        {
+            if (
+                genre.Equals("fantasy", StringComparison.CurrentCultureIgnoreCase)
+                || genre.Equals("sci-fi", StringComparison.CurrentCultureIgnoreCase)
+                || genre.Equals("fiction", StringComparison.CurrentCultureIgnoreCase)
+                || genre.Equals("nonfiction", StringComparison.CurrentCultureIgnoreCase)
+                || genre.Equals("horror", StringComparison.CurrentCultureIgnoreCase)
+            )
+                filteredBook = _context.Books.Select(b => b).Where(b => b.Genre.ToLower() == genre);
+        }
 
-        // //
-
-        // Format Book
-        var BookCards = await _context
-            .Books.AsNoTracking()
+        // Format book based on filter
+        var BookCards = await filteredBook
+            .AsNoTracking()
             .Select(book => new BookCardViewModel
             {
                 Id = book.Id,
@@ -40,6 +49,8 @@ public class BookController(ApplicationContext context) : Controller
             })
             .OrderByDescending(book => book.CreatedAt)
             .ToListAsync();
+
+        //
 
         // Add books into list
         var vm = new BookIndexViewModel { AllBooks = BookCards };

@@ -4,8 +4,21 @@
     ViewData["Title"] = "Book Gallery";
     var books = Model;
 }
+<div class="d-flex justify-content-between align-items-center">
+    <h1>All Books</h1>
 
-<h1>All Books</h1>
+    <div class="dropdown p-1 rounded shadow"">
+        <button class=" dropbtn">Filter Genre</button>
+        <div class="dropdown-content">
+            <a href="/books">All Books</a>
+            <a href="/books?genre=fantasy">Fantasy</a>
+            <a href="/books?genre=sci-Fi">Sci-Fi</a>
+            <a href="/books?genre=fiction">Fiction</a>
+            <a href="/books?genre=nonfiction">NonFiction</a>
+            <a href="/books?genre=horror">Horror</a>
+        </div>
+    </div>
+</div>
 
 @foreach (var book in books.AllBooks)
 {

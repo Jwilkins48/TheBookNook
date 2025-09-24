@@ -21,4 +21,13 @@ public class VolumeInfo
 
     [JsonPropertyName("categories")]
     public List<string> Categories { get; set; } = [];
+
+    [JsonPropertyName("imageLinks")]
+    public ImageLinks? ImageLinks { get; set; }
+}
+
+public class ImageLinks
+{
+    [JsonPropertyName("smallThumbnail")]
+    public string SmallThumbnail { get; set; } = "";
 }

@@ -95,7 +95,6 @@ C:\Users\16829\OneDrive\Desktop\TheBooksNook\obj\Debug\net9.0\rjsmcshtml.dswa.ca
 C:\Users\16829\OneDrive\Desktop\TheBooksNook\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\16829\OneDrive\Desktop\TheBooksNook\obj\Debug\net9.0\scopedcss\bundle\TheBooksNook.styles.css
 C:\Users\16829\OneDrive\Desktop\TheBooksNook\obj\Debug\net9.0\scopedcss\projectbundle\TheBooksNook.bundle.scp.css
-C:\Users\16829\OneDrive\Desktop\TheBooksNook\obj\Debug\net9.0\compressed\3wn8isdq70-b9sayid5wm.gz
 C:\Users\16829\OneDrive\Desktop\TheBooksNook\obj\Debug\net9.0\compressed\v1svi35tyx-61n19gt1b8.gz
 C:\Users\16829\OneDrive\Desktop\TheBooksNook\obj\Debug\net9.0\compressed\e4p9asg3df-xtxxf3hu2r.gz
 C:\Users\16829\OneDrive\Desktop\TheBooksNook\obj\Debug\net9.0\compressed\nepc0606pe-026e6kk7rh.gz
@@ -180,3 +179,4 @@ C:\Users\16829\OneDrive\Desktop\TheBooksNook\bin\Debug\net9.0\zh-CN\Humanizer.re
 C:\Users\16829\OneDrive\Desktop\TheBooksNook\bin\Debug\net9.0\zh-Hans\Humanizer.resources.dll
 C:\Users\16829\OneDrive\Desktop\TheBooksNook\bin\Debug\net9.0\zh-Hant\Humanizer.resources.dll
 C:\Users\16829\OneDrive\Desktop\TheBooksNook\obj\Debug\net9.0\TheBooksNook.sourcelink.json
+C:\Users\16829\OneDrive\Desktop\TheBooksNook\obj\Debug\net9.0\compressed\3wn8isdq70-6osy4dhnmy.gz
