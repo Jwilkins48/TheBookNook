@@ -179,4 +179,4 @@ C:\Users\16829\OneDrive\Desktop\TheBooksNook\bin\Debug\net9.0\zh-CN\Humanizer.re
 C:\Users\16829\OneDrive\Desktop\TheBooksNook\bin\Debug\net9.0\zh-Hans\Humanizer.resources.dll
 C:\Users\16829\OneDrive\Desktop\TheBooksNook\bin\Debug\net9.0\zh-Hant\Humanizer.resources.dll
 C:\Users\16829\OneDrive\Desktop\TheBooksNook\obj\Debug\net9.0\TheBooksNook.sourcelink.json
-C:\Users\16829\OneDrive\Desktop\TheBooksNook\obj\Debug\net9.0\compressed\3wn8isdq70-6osy4dhnmy.gz
+C:\Users\16829\OneDrive\Desktop\TheBooksNook\obj\Debug\net9.0\compressed\3wn8isdq70-jmvyhqbmqi.gz

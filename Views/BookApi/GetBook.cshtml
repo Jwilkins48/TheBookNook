@@ -3,25 +3,38 @@
     ViewData["Title"] = "Random Book";
 }
 
-<h1>Book Suggestions</h1>
+<h2 class="mb-3">Book of the Day</h2>
 
-<h1>@Model.VolumeInfo!.Title</h1>
-<h2>@Model.VolumeInfo.Publisher</h2>
-<p>@Model.VolumeInfo.PublishedDate</p>
+<div>
+    <div class="d-flex align-items-center gap-2">
+        <h1 class="text-warning">@Model.VolumeInfo!.Title</h1>
+        <p>(@Model.VolumeInfo.PublishedDate)</p>
+    </div>
+    <p><span class="text-warning">Written by </span>@Model.VolumeInfo.Authors[0]</p>
 
-<img src=@Model.VolumeInfo.ImageLinks?.SmallThumbnail alt="Book Cover">
+    <div>
+        <div>
 
-<h4 class="mt-3">Description</h4>
-<p>@Model.VolumeInfo.Description</p>
+            <img class="rounded shadow" src=@Model.VolumeInfo.ImageLinks?.SmallThumbnail alt="Book Cover">
+            <div>
+                <h4 class="mt-3 text-warning">Description</h4>
+                <p>@Model.VolumeInfo.Description</p>
+            </div>
 
-<h4>Authors</h4>
-@foreach (var author in Model.VolumeInfo.Authors)
-{
-    <li>@author</li>
-}
+            <div>
+                <h5 class="mt-3 text-warning">Published by</h5>
+                <p>@Model.VolumeInfo.Publisher</p>
+            </div>
 
-<h4 class="mt-3">Categories</h4>
-@foreach (var Category in Model.VolumeInfo.Categories)
-{
-    <li>@Category</li>
-}
+        </div>
+        <div>
+            <h4 class="mt-3 text-warning">Genre</h4>
+            @foreach (var Category in Model.VolumeInfo.Categories)
+            {
+                <p>@Category</p>
+            }
+        </div>
+    </div>
+
+    <a class="btn btn-outline-warning mt-4" href="/books">View All Books</a>
+</div>

@@ -18,7 +18,7 @@ public class BookApiController(IHttpClientFactory clientFactory) : Controller
             client.DefaultRequestHeaders.Add("Accept", "application/json");
 
             var response = await client.GetAsync(
-                "https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC?key=AIzaSyCvb7yPRUxdI5Bqyv5NP6aWV3-i7jQ5-Og"
+                "https://www.googleapis.com/books/v1/volumes/AAjjRgAACAAJ?key=AIzaSyCvb7yPRUxdI5Bqyv5NP6aWV3-i7jQ5-Og"
             );
             if (!response.IsSuccessStatusCode)
             {
