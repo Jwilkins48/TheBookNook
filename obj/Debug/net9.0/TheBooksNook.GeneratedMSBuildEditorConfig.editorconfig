@@ -9,105 +9,105 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TheBooksNook
 build_property.RootNamespace = TheBooksNook
-build_property.ProjectDir = C:\Users\16829\OneDrive\Desktop\TheBooksNook\
+build_property.ProjectDir = C:\Users\jenna\OneDrive\Desktop\Project\TheBookNook\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\16829\OneDrive\Desktop\TheBooksNook
+build_property.MSBuildProjectDirectory = C:\Users\jenna\OneDrive\Desktop\Project\TheBookNook
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Account/ConfirmLogout.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Account/ConfirmLogout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDb25maXJtTG9nb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Account/LoginForm.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Account/LoginForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbkZvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Account/Profile.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Account/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Account/RegisterForm.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Account/RegisterForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RlckZvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/BookApi/GetBook.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/BookApi/GetBook.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va0FwaVxHZXRCb29rLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Book/AddBook.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Book/AddBook.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xBZGRCb29rLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Book/AllBooks.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Book/AllBooks.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xBbGxCb29rcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Book/BookDetails.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Book/BookDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xCb29rRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Book/ConfirmDelete.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Book/ConfirmDelete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xDb25maXJtRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Book/EditBook.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Book/EditBook.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xFZGl0Qm9vay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Book/_CommentForm.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Book/_CommentForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xfQ29tbWVudEZvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Error/Forbidden.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Error/Forbidden.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcRm9yYmlkZGVuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Error/PageNotFound.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Error/PageNotFound.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcUGFnZU5vdEZvdW5kLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Error/ServerError.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Error/ServerError.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcU2VydmVyRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Error/Unauthorized.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Error/Unauthorized.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcVW5hdXRob3JpemVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Home/Index.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Home/Privacy.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Shared/Error.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Shared/_Navbar.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Shared/_Navbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZiYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/_ViewImports.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/_ViewStart.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/16829/OneDrive/Desktop/TheBooksNook/Views/Shared/_Layout.cshtml]
+[C:/Users/jenna/OneDrive/Desktop/Project/TheBookNook/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-kr67b6rj0t

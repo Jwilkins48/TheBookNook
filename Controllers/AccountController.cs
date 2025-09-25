@@ -60,7 +60,7 @@ public class AccountController(ApplicationContext context, IPasswordService pass
         _context.Users.Add(newUser);
         _context.SaveChanges();
 
-        // Start sesion
+        // Start session
         HttpContext.Session.SetInt32(SessionUserId, newUser.Id);
         return RedirectToAction("AllBooks", "Book");
     }
@@ -152,7 +152,7 @@ public class AccountController(ApplicationContext context, IPasswordService pass
                 Email = user.Email,
                 BooksAddedCount = user.Books.Count,
                 BooksCommentedOnCount = user.Comments.Count,
-                BookNames = user.Books.Select((b) => b.BookTitle).ToList(),
+                BookNames = user.Books,
             })
             .FirstOrDefault();
 

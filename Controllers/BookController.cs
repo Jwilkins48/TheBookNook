@@ -50,8 +50,6 @@ public class BookController(ApplicationContext context) : Controller
             .OrderByDescending(book => book.CreatedAt)
             .ToListAsync();
 
-        //
-
         // Add books into list
         var vm = new BookIndexViewModel { AllBooks = BookCards };
         return View(vm);
@@ -97,7 +95,6 @@ public class BookController(ApplicationContext context) : Controller
             Genre = vm.Genre,
             PublishedYear = vm.PublishedYear,
             Description = vm.Description,
-            // BookImageSrc = vm.BookImageSrc,
         };
 
         // Save to db
@@ -129,7 +126,7 @@ public class BookController(ApplicationContext context) : Controller
                 PublishedYear = book.PublishedYear,
                 Description = book.Description,
                 ReaderUsername = book.User!.Username,
-                Comment = book.Comments.Select((c) => c.CommentContext).ToList(),
+                Comments = book.Comments,
                 CommentFormViewModel = new() { BookId = book.Id },
             })
             .FirstOrDefaultAsync();
@@ -165,7 +162,7 @@ public class BookController(ApplicationContext context) : Controller
                     PublishedYear = book.PublishedYear,
                     Description = book.Description,
                     ReaderUsername = book.User!.Username,
-                    Comment = book.Comments.Select((c) => c.CommentContext).ToList(),
+                    Comments = book.Comments,
                     CommentFormViewModel = vm,
                 })
                 .FirstOrDefaultAsync();
@@ -173,9 +170,15 @@ public class BookController(ApplicationContext context) : Controller
             return View("BookDetails", viewModel);
         }
 
+        var currUser = _context
+            .Users.Where(u => u.Id == uid)
+            .Select(u => u.Username)
+            .FirstOrDefault();
+
         var newComment = new Comment
         {
             CommentContext = vm.CommentContext,
+            CommentedBy = currUser!,
             UserId = uid,
             BookId = id,
         };
@@ -291,6 +294,27 @@ public class BookController(ApplicationContext context) : Controller
 
         // Update db
         _context.Books.Remove(book);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(AllBooks));
+    }
+
+    [HttpPost("{id}/delete/comments")] // Delete Book Post
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteComment(int id)
+    {
+        // Check if user is logged in
+        var userId = HttpContext.Session.GetInt32(SessionUserId);
+        if (userId is not int uid)
+            return RedirectToAction("LoginForm", "Account", new { error = "not-authenticated" });
+
+        // Check if comment exists
+        var comment = await _context.Comments.FirstOrDefaultAsync(c => c.Id == id);
+        if (comment is null)
+            return NotFound();
+
+        // Update db
+        _context.Comments.Remove(comment);
         await _context.SaveChangesAsync();
 
         return RedirectToAction(nameof(AllBooks));

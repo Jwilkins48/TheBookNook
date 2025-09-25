@@ -3,13 +3,13 @@
 <h1 class="text-warning">Comment</h1>
 <div class="form-text text-danger" asp-validation-summary="All"></div>
 
-<div class="card shadow mt-4">
+<div class="bookCard px-4 py-3 shadow mt-4">
     <div class="card-body">
         <form asp-action="BookComment" asp-controller="Book" asp-route-id="@Model.BookId" method="post">
 
             <div class="mb-3">
                 <label asp-for="CommentContext" class="form-label">Comment:</label>
-                <input asp-for="CommentContext" class="form-control" />
+                <textarea asp-for="CommentContext" class="form-control"></textarea>
                 <span class="form-text text-danger" asp-validation-for="CommentContext"></span>
 
             </div>

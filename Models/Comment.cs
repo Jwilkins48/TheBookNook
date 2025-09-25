@@ -7,6 +7,7 @@ public class Comment
     [Key]
     public int Id { get; set; }
     public string CommentContext { get; set; } = "";
+    public string CommentedBy { get; set; } = "";
 
     // Foreign Keys
     public int UserId { get; set; }

@@ -4,31 +4,58 @@
     var book = Model;
 }
 
-<h1 class="my-3">Book Details</h1>
-<div class="border-success shadow card mb-3 p-3">
-    @book.BookTitle -
-    @book.Author -
-    @book.Genre -
-    @book.PublishedYear -
-    @book.Description -
-    @book.ReaderUsername
+<div class="d-flex">
 
-    <div class="d-flex align-items-center">
-        <div><a class="text-success-emphasis btn" href="/books">Back To List</a></div>
-        @if (Context.Session.GetInt32("userId") == book.UserId)
-        {
-            <p class="mb-0"> <a class="btn text-warning-emphasis" href="/books/@book.Id/edit">Edit</a> </p>
+    <div class="main">
 
-            <p class="mb-0"> <a class="btn text-danger-emphasis" href="/books/@book.Id/delete">Delete</a></p>
-        }
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="mb-3">Book Details</h1>
+            <a class="btn btn-outline-warning" href="/books">Back to Books</a>
+        </div>
+
+        <div class="border-warning shadow bookCard p-3">
+            <div class="d-flex gap-2 align-items-center">
+                <h2>@book.BookTitle</h2>
+                <h2>(@book.PublishedYear)</h2>
+            </div>
+            <p><span class="text-warning">@book.Author</span> - @book.Genre</p>
+
+            <p>@book.Description</p>
+            <p><span class="text-warning">Posted by</span> @book.ReaderUsername</p>
+
+            <div class="d-flex align-items-center">
+                @if (Context.Session.GetInt32("userId") == book.UserId)
+                {
+                    <p class="mb-0"> <a class="btn text-warning-emphasis p-0" href="/books/@book.Id/edit">Edit</a> </p>
+
+                    <p class="mb-0"> <a class="btn text-danger-emphasis" href="/books/@book.Id/delete">Delete</a>
+                    </p>
+                }
+            </div>
+        </div>
+
+        <ul class="list-group list-group-flush">
+            @foreach (var comment in book.Comments)
+            {
+                <div class="list-group-item text-warning shadow rounded bookCard mt-2 d-flex justify-content-between align-items-center"
+                    style="font-size:1.25rem; position:relative;">
+
+                    @* <div style="position:absolute; right:0; top:5px;" class="d-flex align-items-center">
+                        @if (Context.Session.GetInt32("userId") == comment.UserId)
+                        {
+                            <p class="mb-0"> <a class="btn text-danger-emphasis" href="/books/@comment.Id/delete/comments"><i
+                                        class="bi bi-x-lg"></i></a></p>
+                        }
+                    </div> *@
+
+                    <p>@comment.CommentContext</p>
+                    <p>@comment.CommentedBy</p>
+                </div>
+            }
+        </ul>
     </div>
-
-    @await Html.PartialAsync("_CommentForm", book.CommentFormViewModel)
-
-    <ul class="list-group  list-group-flush">
-        @foreach (var comment in book.Comment)
-        {
-            <li class="list-group-item text-success-emphasis ps-0" style="font-size:1.25rem;">@comment</li>
-        }
-    </ul>
+    <div class="aside">
+        @await Html.PartialAsync("_CommentForm", book.CommentFormViewModel)
+    </div>
 </div>

@@ -32,7 +32,7 @@ public class BookApiController(IHttpClientFactory clientFactory) : Controller
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"An error occurred while fetching the joke: {ex.Message}");
+            return StatusCode(500, $"An error occurred while fetching the book: {ex.Message}");
         }
     }
 }

@@ -1,5 +1,7 @@
 namespace TheBooksNook.ViewModels;
 
+using TheBooksNook.Models;
+
 public class BookDetailsViewModel
 {
     public int Id { get; set; }
@@ -13,5 +15,5 @@ public class BookDetailsViewModel
 
     // Comments
     public CommentFormViewModel? CommentFormViewModel { get; set; }
-    public List<string> Comment { get; set; } = [];
+    public List<Comment> Comments { get; set; } = [];
 }

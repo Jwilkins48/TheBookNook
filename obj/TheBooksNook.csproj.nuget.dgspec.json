@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\16829\\OneDrive\\Desktop\\TheBooksNook\\TheBooksNook.csproj": {}
+    "C:\\Users\\jenna\\OneDrive\\Desktop\\Project\\TheBookNook\\TheBooksNook.csproj": {}
   },
   "projects": {
-    "C:\\Users\\16829\\OneDrive\\Desktop\\TheBooksNook\\TheBooksNook.csproj": {
+    "C:\\Users\\jenna\\OneDrive\\Desktop\\Project\\TheBookNook\\TheBooksNook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\16829\\OneDrive\\Desktop\\TheBooksNook\\TheBooksNook.csproj",
+        "projectUniqueName": "C:\\Users\\jenna\\OneDrive\\Desktop\\Project\\TheBookNook\\TheBooksNook.csproj",
         "projectName": "TheBooksNook",
-        "projectPath": "C:\\Users\\16829\\OneDrive\\Desktop\\TheBooksNook\\TheBooksNook.csproj",
-        "packagesPath": "C:\\Users\\16829\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\16829\\OneDrive\\Desktop\\TheBooksNook\\obj\\",
+        "projectPath": "C:\\Users\\jenna\\OneDrive\\Desktop\\Project\\TheBookNook\\TheBooksNook.csproj",
+        "packagesPath": "C:\\Users\\jenna\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jenna\\OneDrive\\Desktop\\Project\\TheBookNook\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\16829\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\jenna\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

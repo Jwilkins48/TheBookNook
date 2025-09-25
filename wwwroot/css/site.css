@@ -113,10 +113,32 @@ footer {
 .bookCard {
   background-color: #153536bd;
   border: #0b212294 1px solid;
+  border-radius: 6px 6px 0 0;
 }
 .bookCard a {
   text-decoration: none;
 }
 .bookCard a:hover {
   text-decoration: underline;
+}
+.card-footer {
+  background-color: #102d2e;
+}
+
+.login-container {
+  margin: 0 15rem;
+}
+
+.main,
+.aside {
+  padding: 1.25rem;
+  min-height: 20rem;
+}
+
+.main {
+  flex: 2;
+}
+
+.aside {
+  flex: 1;
 }

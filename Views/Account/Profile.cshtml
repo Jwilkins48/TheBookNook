@@ -5,9 +5,9 @@
     var user = Model;
 }
 
-<h1>@user.Username's Profile</h1>
+<h1>@user.Username's</span> Profile</h1>
 
-<div class="card p-3 border-success d-flex justify-content-between" style="flex-direction: row; width:28rem;">
+<div class="card bookCard shadow p-3 d-flex justify-content-between" style="flex-direction: row; width:28rem;">
     <div>
 
         <div><strong>Username:</strong>
@@ -34,7 +34,28 @@
 </div>
 
 <h3 class="mt-3">Uploaded Books</h3>
-@foreach (var book in user.BookNames)
-{
-    <li class="list-group-item text-success-emphasis ps-0" style="font-size:1.25rem;">@book</li>
-}
+<div style="display:grid;grid-template-columns: 1fr 1fr 1fr;gap: 1rem;">
+    @foreach (var book in @Model.BookNames)
+    {
+        <div class="shadow card mb-3 p-3 pb-1 bookCard">
+            <a href="/books/@book.Id" class="list-group-item text-warning ps-0"
+                style="font-size:1.25rem;">@book.BookTitle</a>
+            <p>@book.Author ~ @book.PublishedYear</p>
+            <p><span class="text-warning">Genre</span> @book.Genre</p>
+
+
+            <div style="position:absolute; right:0; top:5px;" class="d-flex align-items-center">
+                @if (Context.Session.GetInt32("userId") == book.UserId)
+                {
+                    <p class="mb-0"> <a class="btn text-danger-emphasis" href="/books/@book.Id/delete"><i
+                                class="bi bi-x-lg"></i></a></p>
+                }
+            </div>
+        </div>
+
+
+
+
+
+    }
+</div>
