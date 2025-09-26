@@ -299,7 +299,7 @@ public class BookController(ApplicationContext context) : Controller
         return RedirectToAction(nameof(AllBooks));
     }
 
-    [HttpPost("{id}/delete/comments")] // Delete Book Post
+    [HttpPost("{id}/delete/comments")] // Delete Comment Post
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteComment(int id)
     {

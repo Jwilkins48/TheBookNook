@@ -142,3 +142,7 @@ footer {
 .aside {
   flex: 1;
 }
+
+.suggest:hover {
+  text-decoration: underline;
+}

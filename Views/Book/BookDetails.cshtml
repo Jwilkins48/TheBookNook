@@ -38,22 +38,32 @@
         <ul class="list-group list-group-flush">
             @foreach (var comment in book.Comments)
             {
-                <div class="list-group-item text-warning shadow rounded bookCard mt-2 d-flex justify-content-between align-items-center"
+                <li class="list-group-item shadow rounded bookCard mt-2 d-flex"
                     style="font-size:1.25rem; position:relative;">
 
-                    @* <div style="position:absolute; right:0; top:5px;" class="d-flex align-items-center">
+                    <div style="position:absolute; right:0; top:5px;" class="d-flex align-items-center">
                         @if (Context.Session.GetInt32("userId") == comment.UserId)
                         {
-                            <p class="mb-0"> <a class="btn text-danger-emphasis" href="/books/@comment.Id/delete/comments"><i
-                                        class="bi bi-x-lg"></i></a></p>
+                            <form asp-action="DeleteComment" asp-controller="Book" asp-route-id="@comment.Id" method="post">
+                                <button class="btn" style="" type="submit"><i class="bi bi-x-lg"></i></button>
+                            </form>
                         }
-                    </div> *@
+                    </div>
 
-                    <p>@comment.CommentContext</p>
-                    <p>@comment.CommentedBy</p>
-                </div>
+                    <div>
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="bi bi-person-circle text-warning"></i>
+                            <p style="text-decoration:underline; font-size:1.35rem" class="text-warning mb-1">
+                                @comment.CommentedBy
+                            </p>
+                        </div>
+                        <p class="m-0 p-0">@comment.CommentContext</p>
+                    </div>
+
+                </li>
             }
         </ul>
+
     </div>
     <div class="aside">
         @await Html.PartialAsync("_CommentForm", book.CommentFormViewModel)

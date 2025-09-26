@@ -10,8 +10,8 @@
         <a href="/books/new"><i class="bi bi-plus-circle" style="font-size:1.8rem; color:#ffc107;"></i></a>
     </div>
 
-    <div class="dropdown p-1 rounded shadow"">
-        <button class=" dropbtn btn btn-warning">Filter Genre</button>
+    <div class="dropdown p-1 rounded"">
+        <button class=" shadow dropbtn btn btn-warning">Filter Genre</button>
         <div class="dropdown-content rounded">
             <a href="/books">All Books</a>
             <a href="/books?genre=fantasy">Fantasy</a>
@@ -35,8 +35,6 @@
                 <p><span class="text-warning">Posted By</span> @book.ReaderUsername </p>
                 <p style="font-size:.7rem;">@book.CreatedAt.Humanize()</p>
             </div>
-
-
 
             <div style="position:absolute; right:0; top:5px;" class="d-flex align-items-center">
                 @if (Context.Session.GetInt32("userId") == book.UserId)
