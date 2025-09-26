@@ -142,6 +142,9 @@ footer {
 .aside {
   flex: 1;
 }
+.apiAside {
+  flex: 1;
+}
 
 .suggest:hover {
   text-decoration: underline;

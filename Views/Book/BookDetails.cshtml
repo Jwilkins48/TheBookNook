@@ -1,6 +1,6 @@
 @model BookDetailsViewModel
 @{
-    ViewData["Title"] = @Model.BookTitle;
+    ViewData["Title"] = Model.BookTitle;
     var book = Model;
 }
 
@@ -44,8 +44,10 @@
                     <div style="position:absolute; right:0; top:5px;" class="d-flex align-items-center">
                         @if (Context.Session.GetInt32("userId") == comment.UserId)
                         {
-                            <form asp-action="DeleteComment" asp-controller="Book" asp-route-id="@comment.Id" method="post">
-                                <button class="btn" style="" type="submit"><i class="bi bi-x-lg"></i></button>
+                            <form asp-action="DeleteComment" asp-controller="Book" asp-route-id="@comment.Id"
+                                asp-route-bookId=@comment.BookId method="post">
+                                <input type="hidden" asp-for="@comment.BookId" value="@comment.BookId">
+                                <button class="btn" type="submit"><i class="bi bi-x-lg"></i></button>
                             </form>
                         }
                     </div>
@@ -57,7 +59,7 @@
                                 @comment.CommentedBy
                             </p>
                         </div>
-                        <p class="m-0 p-0">@comment.CommentContext</p>
+                        <p style="font-size:1rem">@comment.CommentContext</p>
                     </div>
 
                 </li>

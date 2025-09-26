@@ -326,6 +326,7 @@ C:\Users\jenna\OneDrive\Desktop\Project\TheBookNook\obj\Debug\net9.0\rjsmcshtml.
 C:\Users\jenna\OneDrive\Desktop\Project\TheBookNook\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\jenna\OneDrive\Desktop\Project\TheBookNook\obj\Debug\net9.0\scopedcss\bundle\TheBooksNook.styles.css
 C:\Users\jenna\OneDrive\Desktop\Project\TheBookNook\obj\Debug\net9.0\scopedcss\projectbundle\TheBooksNook.bundle.scp.css
+C:\Users\jenna\OneDrive\Desktop\Project\TheBookNook\obj\Debug\net9.0\compressed\3wn8isdq70-2uvmrp9u9e.gz
 C:\Users\jenna\OneDrive\Desktop\Project\TheBookNook\obj\Debug\net9.0\compressed\v1svi35tyx-61n19gt1b8.gz
 C:\Users\jenna\OneDrive\Desktop\Project\TheBookNook\obj\Debug\net9.0\compressed\e4p9asg3df-xtxxf3hu2r.gz
 C:\Users\jenna\OneDrive\Desktop\Project\TheBookNook\obj\Debug\net9.0\compressed\nepc0606pe-t7g9wg1led.gz
@@ -361,4 +362,3 @@ C:\Users\jenna\OneDrive\Desktop\Project\TheBookNook\obj\Debug\net9.0\refint\TheB
 C:\Users\jenna\OneDrive\Desktop\Project\TheBookNook\obj\Debug\net9.0\TheBooksNook.pdb
 C:\Users\jenna\OneDrive\Desktop\Project\TheBookNook\obj\Debug\net9.0\TheBooksNook.genruntimeconfig.cache
 C:\Users\jenna\OneDrive\Desktop\Project\TheBookNook\obj\Debug\net9.0\ref\TheBooksNook.dll
-C:\Users\jenna\OneDrive\Desktop\Project\TheBookNook\obj\Debug\net9.0\compressed\3wn8isdq70-f1qiqfp8s1.gz

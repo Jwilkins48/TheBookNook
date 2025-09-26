@@ -15,14 +15,14 @@ public class BookApiController(IHttpClientFactory clientFactory) : Controller
         string[] authors =
         {
             "fswbNQEACAAJ",
-            "AAjjRgAACAAJ",
-            "at4lQwAACAAJ",
+            "R7YsowJI9-IC",
+            "PNW7TiM1BJ8C",
             "rpLxEAAAQBAJ",
             "C8NVhWNU_uIC",
-            "oZRlYDfxXpQC",
+            "ebW2JpsaOxkC",
             "Ak11sHG2uWIC",
             "NRWlitmahXkC",
-            "5P9QEQAAQBAJ",
+            "qakBAgAAQBAJ",
             "GfcIEAAAQBAJ",
         };
 

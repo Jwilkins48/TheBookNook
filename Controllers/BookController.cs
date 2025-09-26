@@ -301,7 +301,7 @@ public class BookController(ApplicationContext context) : Controller
 
     [HttpPost("{id}/delete/comments")] // Delete Comment Post
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteComment(int id)
+    public async Task<IActionResult> DeleteComment(int id, int bookId)
     {
         // Check if user is logged in
         var userId = HttpContext.Session.GetInt32(SessionUserId);
@@ -317,6 +317,27 @@ public class BookController(ApplicationContext context) : Controller
         _context.Comments.Remove(comment);
         await _context.SaveChangesAsync();
 
-        return RedirectToAction(nameof(AllBooks));
+        var book = await _context.Books.Where((book) => book.Id == bookId).FirstOrDefaultAsync();
+        if (book is null)
+            return NotFound();
+
+        var viewModel = await _context
+            .Books.Where(book => book.Id == bookId)
+            .Select(book => new BookDetailsViewModel
+            {
+                Id = book.Id,
+                UserId = book.UserId,
+                BookTitle = book.BookTitle,
+                Author = book.Author,
+                Genre = book.Genre,
+                PublishedYear = book.PublishedYear,
+                Description = book.Description,
+                ReaderUsername = book.User!.Username,
+                Comments = book.Comments,
+                CommentFormViewModel = new() { BookId = bookId },
+            })
+            .FirstOrDefaultAsync();
+
+        return View("BookDetails", viewModel);
     }
 }
